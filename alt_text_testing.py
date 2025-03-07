@@ -52,6 +52,7 @@ def get_model_id(l_model_id):
 # option: -s [filepath]
 save_file_name = ""
 model_id = get_model_id("default")
+prompt_file_name = "prompt.txt"
 b_random = False
 # model selection
 # Values
@@ -64,6 +65,9 @@ b_random = False
 
 #folder to process
 # option: -d [folder path]
+
+#prompt file
+# option: -p [optional: file path to prompt]
 
 #Random
 # option: -r [optional]
@@ -85,6 +89,10 @@ if len(sys.argv) > 0:
 
             case "-d":
                 folder_name = sys.argv[i+1]
+                i+=1
+
+            case "-p":
+                prompt_file_name = sys.argv[i+1]
                 i+=1
 
             case "-r":
@@ -156,7 +164,7 @@ for x in random_full_file_list:
         os.remove(tmp_image)
 
 
-    with open("prompt.txt", 'r') as prompt_file:
+    with open(prompt_file_name, 'r') as prompt_file:
         prompt_string = prompt_file.read()
     
 
