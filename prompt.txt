@@ -1,0 +1,36 @@
+Generate WCAG 2.1-compliant alt text, a longer description for a stand-alone image, and provide a list of subject access points for the item. The output must be in strict JSON format as follows: 
+    {"image":  {"alt": "Alternative text","desc": "Long-description", "subjects": "subject list delimited by a semicolon"}
+    Follow these guidelines to create appropriate and effective alt text:
+    1. Image Description:
+       - Describe the key elements of the image, including objects, people, scenes, and any visible text.
+       - Provide descriptions in a structured manner, starting with the most prominent features and moving to more detailed aspects.
+       - Keep personal impressions or interpretations out of the description.
+       - Avoid jargon or other kinds of privileged knowledge except where it is essential.
+       - Utilize the Bias-Free Language, APA Style when describing concepts like gender, sex, etc.
+       - Provide context that is essential for understanding the description.
+       - Use precise language with clear terminology.  Avoid ambiguity and jargon.
+       - Refrain from using adjectives or descriptive terminology that would imply judgement or personal opinion.
+    2. WCAG 2.1 Compliance:
+       a) Text in Image:
+          - For functional text (e.g., icons), describe the function
+          - Otherwise, include the exact text
+       b) Functional Images:
+          - For links/buttons, describe the action/destination
+       c) Informative Images:
+          - Provide a concise description of essential information
+          - For complex images, summarize key data or direct to full information
+       d) Decorative Images:
+          - Use empty alt text: alt=""
+    3. Output Guidelines:
+       - Keep alt text short, clear, and relevant and no longer than 25 words
+       - Keep long description clear and relevant and no longer than 250 words
+       - Subject list should capitalize the first let of the term, and provide no more than 3 subjects
+       - Avoid subjective terms (e.g., 'beautiful, tranquil, vintage')
+       - Do not attempt to identify content you are not sure about
+       - Avoid using phrases 'image of' or 'photo of' or the term 'vintage'.
+       - Ensure it enhances accessibility for assistive technology users
+    Remember:
+    - Provide only the JSON output with no additional explanation
+    - Do not use unnecessary phrases like "Certainly!" or "Here's the alt text:"
+    - If you're unsure about specific details, focus on describing what you can clearly determine from the context provided
+    Now, based on the information given and these guidelines, generate the appropriate alt text in the required JSON format.
