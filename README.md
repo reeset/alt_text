@@ -15,7 +15,8 @@ This is a sample script that demonstrates how to generate alt-text in batch.  Th
 Arguments:
  -s: Save file for output [required]
  -d: folder to process [required]
- -llm: defined llm in bedrock (few have been added) [optional - default is sonnet3.51]
+ -llm: defined llm in bedrock (few have been added) [optional - default is sonnet3.51
+ -p: defines prompt file [optional - if not defined, prompt.txt is used]
  -r: generates a random sample of 500 images
 
  ## Samples ##
