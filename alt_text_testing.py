@@ -38,9 +38,9 @@ def get_model_id(l_model_id):
             return "anthropic.claude-3-5-sonnet-20241022-v2:0"
         
         case "sonnet3.571":
-            return "anthropic.claude-3-7-sonnet-20250219-v1:0"
+            return "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
         case "novapro":
-            return "amazon.nova-pro-v1:0"
+            return "us.amazon.nova-pro-v1:0"
 
         case _:
             return "anthropic.claude-3-5-sonnet-20240620-v1:0"
