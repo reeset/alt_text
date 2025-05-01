@@ -1,5 +1,6 @@
-Generate WCAG 2.1-compliant alt text, a longer description for a stand-alone image, and provide a list of subject access points for the item. The output must be in strict JSON format as follows: 
-    {"image":  {"alt": "Alternative text","desc": "Long-description", "subjects": "subject list delimited by a semicolon"}
+Generate WCAG 2.1-compliant alt text, a longer description for a stand-alone image, and provide a list of subject access points for the item. 
+The output must be in strict JSON format as follows: 
+    "image":  {"alt": "Alternative text","desc": "Long-description", "subjects": "subject list delimited by a semicolon"}
     Follow these guidelines to create appropriate and effective alt text:
     1. Image Description:
        - Describe the key elements of the image, including objects, people, scenes, and any visible text.

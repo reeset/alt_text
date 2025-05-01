@@ -198,28 +198,35 @@ for x in random_full_file_list:
     }
 
 
-    # we're ready to invoke the model!
-    response = bedrock_runtime_client.invoke_model(
-        modelId=model_id,
-        contentType="application/json",
-        body=json.dumps(payload)
-    )
-
-    # now we need to read the response. It comes back as a stream of bytes 
-    # so if we want to display the response in one go we need to read the full stream first
-    # then convert it to a string as json and load it as a dictionary 
-    # so we can access the field containing the content without all the metadata noise
-    output_binary = response["body"].read()
-    output_json = json.loads(output_binary)
-    output = output_json["content"][0]["text"]
-
-    # save the output
-    
     try:
-        alt_text = json.loads(output)
-        f.write(filename + "\t" + alt_text['image']['alt'] + "\t" + alt_text['image']['desc'] + "\t" + alt_text['image']['subjects'] + "\n")  # python will convert \n to os.linesep
-    except:
-        f.write(filename + "\t" + "error thrown by amazon api" + "\n")
+        # we're ready to invoke the model!
+        response = bedrock_runtime_client.invoke_model(
+            modelId=model_id,
+            contentType="application/json",
+            body=json.dumps(payload)
+        )
 
+        # now we need to read the response. It comes back as a stream of bytes 
+        # so if we want to display the response in one go we need to read the full stream first
+        # then convert it to a string as json and load it as a dictionary 
+        # so we can access the field containing the content without all the metadata noise
+        output_binary = response["body"].read()
+    
+        output_json = json.loads(output_binary)
+    
+        #need to check the prompt -- some output includes this forward and end bit -- 
+        #just erasing them for now.
+        output = output_json["content"][0]["text"].replace("```json", "").replace("```", "")
+    
+    
+        # save the output
+        
+        try:
+            alt_text = json.loads(output)
+            f.write(filename + "\t" + alt_text['image']['alt'] + "\t" + alt_text['image']['desc'] + "\t" + alt_text['image']['subjects'] + "\n")  # python will convert \n to os.linesep
+        except:
+            f.write(filename + "\t" + "error thrown by amazon api" + "\n")
+    except:
+        f.write(filename + "\t" + "error returned via the ai -- skipping" + "\n")
 
 print("Script has completed")
